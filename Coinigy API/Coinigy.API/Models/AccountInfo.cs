@@ -1,40 +1,110 @@
-﻿namespace Coinigy.API.Models
+﻿
+using RestSharp.Deserializers;
+
+namespace Coinigy.API.Models
 {
     public class AccountInfo
     {
-        public string email { get; set; }
-        public string active { get; set; }
-        public string last_login { get; set; }
-        public string chat_enabled { get; set; }
-        public string chat_nick { get; set; }
-        public string ticker_enabled { get; set; }
-        public string ticker_indicator_time_type { get; set; }
-        public string custom_ticker { get; set; }
-        public object first_name { get; set; }
-        public object last_name { get; set; }
-        public string last_active { get; set; }
-        public string pref_subscription_expires { get; set; }
-        public string pref_alert_email { get; set; }
-        public string pref_alert_sms { get; set; }
-        public string pref_trade_email { get; set; }
-        public string pref_trade_sms { get; set; }
-        public object pref_alert_mobile { get; set; }
-        public object pref_trade_mobile { get; set; }
-        public string pref_balance_email { get; set; }
-        public string pref_referral_code { get; set; }
-        public string created_on { get; set; }
-        public object company { get; set; }
-        public object phone { get; set; }
-        public object street1 { get; set; }
-        public object street2 { get; set; }
-        public object city { get; set; }
-        public object state { get; set; }
-        public object zip { get; set; }
-        public object country { get; set; }
-        public string newsletter { get; set; }
-        public string two_factor { get; set; }
-        public string subscription_status { get; set; }
-        public string referral_balance { get; set; }
-        public bool pref_app_device_id { get; set; }
+        [DeserializeAs(Name = "email")]
+        public string Email { get; set; }
+
+        [DeserializeAs(Name = "active")]
+        public string Active { get; set; }
+
+        [DeserializeAs(Name = "last_login")]
+        public string LastLogin { get; set; }
+
+        [DeserializeAs(Name = "chat_enabled")]
+        public string ChatEnabled { get; set; }
+
+        [DeserializeAs(Name = "chat_nick")]
+        public string ChatNick { get; set; }
+
+        [DeserializeAs(Name = "ticker_enabled")]
+        public string TickerEnabled { get; set; }
+
+        [DeserializeAs(Name = "ticker_indicator_time_type")]
+        public string TickerIndicatorTimeType { get; set; }
+
+        [DeserializeAs(Name = "custom_ticker")]
+        public string CustomTicker { get; set; }
+
+        [DeserializeAs(Name = "first_name")]
+        public object FirstName { get; set; }
+
+        [DeserializeAs(Name = "last_name")]
+        public object LastName { get; set; }
+
+        [DeserializeAs(Name = "last_active")]
+        public string LastActive { get; set; }
+
+        [DeserializeAs(Name = "pref_subscription_expires")]
+        public string PrefSubscriptionExpires { get; set; }
+
+        [DeserializeAs(Name = "pref_alert_email")]
+        public string PrefAlertEmail { get; set; }
+
+        [DeserializeAs(Name = "pref_alert_sms")]
+        public string PrefAlertSms { get; set; }
+
+        [DeserializeAs(Name = "pref_trade_email")]
+        public string PrefTradeEmail { get; set; }
+
+        [DeserializeAs(Name = "pref_trade_sms")]
+        public string PrefTradeSms { get; set; }
+
+        [DeserializeAs(Name = "pref_alert_mobile")]
+        public object PrefAlertMobile { get; set; }
+
+        [DeserializeAs(Name = "pref_trade_mobile")]
+        public object PrefTradeMobile { get; set; }
+
+        [DeserializeAs(Name = "pref_balance_email")]
+        public string PrefBalanceEmail { get; set; }
+
+        [DeserializeAs(Name = "pref_referral_code")]
+        public string PrefReferralCode { get; set; }
+
+        [DeserializeAs(Name = "created_on")]
+        public string CreatedOn { get; set; }
+
+        [DeserializeAs(Name = "company")]
+        public object Company { get; set; }
+
+        [DeserializeAs(Name = "phone")]
+        public object Phone { get; set; }
+
+        [DeserializeAs(Name = "street1")]
+        public object Street1 { get; set; }
+
+        [DeserializeAs(Name = "street2")]
+        public object Street2 { get; set; }
+
+        [DeserializeAs(Name = "city")]
+        public object City { get; set; }
+
+        [DeserializeAs(Name = "state")]
+        public object State { get; set; }
+
+        [DeserializeAs(Name = "zip")]
+        public object Zip { get; set; }
+
+        [DeserializeAs(Name = "country")]
+        public object Country { get; set; }
+
+        [DeserializeAs(Name = "newsletter")]
+        public string Newsletter { get; set; }
+
+        [DeserializeAs(Name = "two_factor")]
+        public string TwoFactor { get; set; }
+
+        [DeserializeAs(Name = "subscription_status")]
+        public string SubscriptionStatus { get; set; }
+
+        [DeserializeAs(Name = "referral_balance")]
+        public string ReferralBalance { get; set; }
+
+        [DeserializeAs(Name = "pref_app_device_id")]
+        public bool PrefAppDeviceId { get; set; }
     }
 }

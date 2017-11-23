@@ -9,6 +9,6 @@ namespace Coinigy.API.Models
         public T Data { get; set; }
 
         [DeserializeAs(Name = "notifications")]
-        public List<object> Notifications { get; set; }
+        public List<Notification> Notifications { get; set; }
     }
 }
