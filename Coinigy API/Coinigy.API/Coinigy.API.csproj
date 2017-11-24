@@ -61,7 +61,7 @@
     <Compile Include="Models\AddAlertModel.cs" />
     <Compile Include="Models\AddApiKeyModel.cs" />
     <Compile Include="Models\AddOrderModel.cs" />
-    <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\Alerts.cs" />
     <Compile Include="Models\AlertHistory.cs" />
     <Compile Include="Models\BalanceHistory.cs" />
     <Compile Include="Models\BaseResponse.cs" />
