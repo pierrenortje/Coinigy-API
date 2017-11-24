@@ -23,7 +23,6 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 #endregion
 
-
 using RestSharp.Deserializers;
 
 namespace Coinigy.API.Models
