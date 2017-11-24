@@ -8,8 +8,8 @@ namespace Coinigy.API.Tests
         #region Private Fields
         private ApiRequest api;
 
-        private const string apiKey = "30fa4e901c8df133e9ba3867d9409c6d";
-        private const string apiSecret = "fd283fa0fc3ad29f53fad04083fd654b";
+        private const string apiKey = "[YOUR-API-KEY]";
+        private const string apiSecret = "[YOUR-API-SECRET]";
         #endregion
 
         #region Public Properties
