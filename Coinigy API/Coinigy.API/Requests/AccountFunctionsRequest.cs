@@ -60,7 +60,7 @@ namespace Coinigy.API.Requests
             return await base.Execute<BaseResponse<object>>(request);
         }
 
-        public async Task<BaseResponse<object>> DeleteAlert(AddAlertModel model)
+        public async Task<BaseResponse<object>> DeleteAlert(DeleteAlertModel model)
         {
             var request = new RestRequest("deleteAlert", Method.POST);
             request.AddJsonBody(model);

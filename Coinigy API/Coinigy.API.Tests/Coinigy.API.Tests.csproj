@@ -51,6 +51,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AccountDataRequestTests.cs" />
+    <Compile Include="AccountFunctionsRequestTests.cs" />
+    <Compile Include="MarketDataRequestTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>

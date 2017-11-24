@@ -5,9 +5,15 @@ namespace Coinigy.API.Models
     public class AddApiKeyModel
     {
         [SerializeAs(Name = "api_key")]
-        public string api_key { get; set; }
-        public string api_secret { get; set; }
-        public int api_exch_id { get; set; }
-        public string api_nickname { get; set; }
+        public string ApiKey { get; set; }
+
+        [SerializeAs(Name = "api_secret")]
+        public string ApiSecret { get; set; }
+
+        [SerializeAs(Name = "api_exch_id")]
+        public int ApiExchId { get; set; }
+
+        [SerializeAs(Name = "api_nickname")]
+        public string ApiNickname { get; set; }
     }
 }

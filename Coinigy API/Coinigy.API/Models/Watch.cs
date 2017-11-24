@@ -1,26 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RestSharp.Deserializers;
 
 namespace Coinigy.API.Models
 {
     public class Watch
     {
-        public string exchmkt_id { get; set; }
-        public string mkt_name { get; set; }
-        public string exch_code { get; set; }
-        public string exch_name { get; set; }
-        public string primary_currency_name { get; set; }
-        public string secondary_currency_name { get; set; }
-        public string server_time { get; set; }
-        public string last_price { get; set; }
-        public string prev_price { get; set; }
-        public string high_trade { get; set; }
-        public string low_trade { get; set; }
-        public string current_volume { get; set; }
-        public string fiat_market { get; set; }
-        public string btc_volume { get; set; }
+        [DeserializeAs(Name = "exchmkt_id")]
+        public string ExchMktId { get; set; }
+
+        [DeserializeAs(Name = "mkt_name")]
+        public string MktName { get; set; }
+
+        [DeserializeAs(Name = "exch_code")]
+        public string ExchCode { get; set; }
+
+        [DeserializeAs(Name = "exch_name")]
+        public string ExchName { get; set; }
+
+        [DeserializeAs(Name = "primary_currency_name")]
+        public string PrimaryCurrencyName { get; set; }
+
+        [DeserializeAs(Name = "secondary_currency_name")]
+        public string SecondaryCurrencyName { get; set; }
+
+        [DeserializeAs(Name = "server_time")]
+        public string ServerTime { get; set; }
+
+        [DeserializeAs(Name = "last_price")]
+        public string LastPrice { get; set; }
+
+        [DeserializeAs(Name = "prev_price")]
+        public string PrevPrice { get; set; }
+
+        [DeserializeAs(Name = "high_trade")]
+        public string HighTrade { get; set; }
+
+        [DeserializeAs(Name = "low_trade")]
+        public string LowTrade { get; set; }
+
+        [DeserializeAs(Name = "current_volume")]
+        public string CurrentVolume { get; set; }
+
+        [DeserializeAs(Name = "fiat_market")]
+        public string FiatMarket { get; set; }
+
+        [DeserializeAs(Name = "btc_volume")]
+        public string BtcVolume { get; set; }
     }
 }

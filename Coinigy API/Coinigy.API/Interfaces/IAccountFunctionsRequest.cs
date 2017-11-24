@@ -46,7 +46,7 @@ namespace Coinigy.API.Interfaces
         /// Delete existing price alert.
         /// </summary>
         /// <returns></returns>
-        Task<BaseResponse<object>> DeleteAlert(AddAlertModel model);
+        Task<BaseResponse<object>> DeleteAlert(DeleteAlertModel model);
 
         /// <summary>
         /// Add a new Exchange API Key to your account.

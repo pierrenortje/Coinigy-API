@@ -1,27 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RestSharp.Deserializers;
 
 namespace Coinigy.API.Models
 {
     public class NewsFeed
     {
-        public string id { get; set; }
-        public string url { get; set; }
-        public string title { get; set; }
-        public string pubDate { get; set; }
-        public string timestamp { get; set; }
-        public string feed_id { get; set; }
-        public string published_date { get; set; }
-        public string feed_name { get; set; }
-        public string feed_url { get; set; }
-        public string feed_enabled { get; set; }
-        public string feed_description { get; set; }
-        public string url_field { get; set; }
-        public string title_field { get; set; }
-        public string date_field { get; set; }
-        public string feed_image { get; set; }
+        [DeserializeAs(Name = "id")]
+        public string ID { get; set; }
+
+        [DeserializeAs(Name = "url")]
+        public string Url { get; set; }
+
+        [DeserializeAs(Name = "title")]
+        public string Title { get; set; }
+
+        [DeserializeAs(Name = "pubDate")]
+        public string PubDate { get; set; }
+
+        [DeserializeAs(Name = "timestamp")]
+        public string Timestamp { get; set; }
+
+        [DeserializeAs(Name = "feed_id")]
+        public string FeedId { get; set; }
+
+        [DeserializeAs(Name = "published_date")]
+        public string PublishedDate { get; set; }
+
+        [DeserializeAs(Name = "feed_name")]
+        public string FeedName { get; set; }
+
+        [DeserializeAs(Name = "feed_url")]
+        public string FeedUrl { get; set; }
+
+        [DeserializeAs(Name = "feed_enabled")]
+        public string FeedEnabled { get; set; }
+
+        [DeserializeAs(Name = "feed_description")]
+        public string FeedDescription { get; set; }
+
+        [DeserializeAs(Name = "url_field")]
+        public string UrlField { get; set; }
+
+        [DeserializeAs(Name = "title_field")]
+        public string TitleField { get; set; }
+
+        [DeserializeAs(Name = "date_field")]
+        public string DateField { get; set; }
+
+        [DeserializeAs(Name = "feed_image")]
+        public string FeedImage { get; set; }
     }
 }

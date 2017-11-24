@@ -27,12 +27,12 @@ namespace Coinigy.API
             this.apiKey = apiKey;
             this.apiSecret = apiSecret;
         }
-#endregion
+        #endregion
 
-#region Public Properties
+        #region Public Properties
         public AccountDataRequest AccountDataRequest { get { return new AccountDataRequest(this.restClient, this.apiKey, this.apiSecret); } }
         public AccountFunctionsRequest AccountFunctionsRequest { get { return new AccountFunctionsRequest(this.restClient, this.apiKey, this.apiSecret); } }
         public MarketDataRequest MarketDataRequest { get { return new MarketDataRequest(this.restClient, this.apiKey, this.apiSecret); } }
-#endregion
+        #endregion
     }
 }

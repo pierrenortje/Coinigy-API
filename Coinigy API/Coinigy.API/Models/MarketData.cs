@@ -6,34 +6,24 @@ namespace Coinigy.API.Models
     public class MarketData
     {
         [DeserializeAs(Name = "exch_code")]
-        public string exch_code { get; set; }
-        public string primary_curr_code { get; set; }
-        public string secondary_curr_code { get; set; }
-        public string type { get; set; }
-        public List<History> history { get; set; }
-        public List<Ask> asks { get; set; }
-        public List<Bid> bids { get; set; }
-    }
+        public string ExchCode { get; set; }
 
-    public class History
-    {
-        public string price { get; set; }
-        public string quantity { get; set; }
-        public string time_local { get; set; }
-        public string type { get; set; }
-    }
+        [DeserializeAs(Name = "primary_curr_code")]
+        public string PrimaryCurrCode { get; set; }
 
-    public class Ask
-    {
-        public string price { get; set; }
-        public string quantity { get; set; }
-        public string total { get; set; }
-    }
+        [DeserializeAs(Name = "secondary_curr_code")]
+        public string SecondaryCurrCode { get; set; }
 
-    public class Bid
-    {
-        public string price { get; set; }
-        public string quantity { get; set; }
-        public string total { get; set; }
+        [DeserializeAs(Name = "type")]
+        public string Type { get; set; }
+
+        [DeserializeAs(Name = "history")]
+        public List<MarketHistory> History { get; set; }
+
+        [DeserializeAs(Name = "asks")]
+        public List<MarketAsk> Asks { get; set; }
+
+        [DeserializeAs(Name = "bids")]
+        public List<MarketBid> Bids { get; set; }
     }
 }
