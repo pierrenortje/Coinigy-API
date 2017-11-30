@@ -317,7 +317,6 @@ namespace Coinigy.API
             requestType = channelName;
             if (Guid.TryParse(channelName, out channelGuid))
                 if (channelGuid.ToString().ToLower() == channelName.ToLower())
-                    // ok we have a private channel so lets find out what data we have
                     requestType = jObj["data"]["data"]["MessageType"].ToString();
 
             return requestType;
