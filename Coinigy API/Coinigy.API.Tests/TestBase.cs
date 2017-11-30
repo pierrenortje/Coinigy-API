@@ -7,9 +7,11 @@ namespace Coinigy.API.Tests
     {
         #region Private Fields
         private ApiRequest api;
+        #endregion
 
-        private const string apiKey = "[YOUR-API-KEY]";
-        private const string apiSecret = "[YOUR-API-SECRET]";
+        #region Public Fields
+        public const string ApiKey = "[YOUR-API-KEY]";
+        public const string ApiSecret = "[YOUR-API-SECRET]";
         #endregion
 
         #region Public Properties
@@ -26,7 +28,7 @@ namespace Coinigy.API.Tests
         [TestInitialize]
         public void Init()
         {
-            this.api = new ApiRequest(apiKey, apiSecret);
+            this.api = new ApiRequest(ApiKey, ApiSecret);
         }
         #endregion
     }

@@ -80,8 +80,8 @@ namespace Coinigy.API.Tests
         {
             var result = await API.AccountFunctionsRequest.AddApiKey(new AddApiKeyModel
             {
-                ApiKey = "363f41b7e25674d0eb487153f2c04468",
-                ApiSecret = "7adcdb76404ead6cbb8229e8535db473",
+                ApiKey = "897f5b6d1897fc2d2e3c7fdc24df1cb3",
+                ApiSecret = "a0a2887e6322f5e030f59188597b9200",
                 ApiExchId = 7,
                 ApiNickname = "My New Exchange Account"
             });
@@ -119,14 +119,46 @@ namespace Coinigy.API.Tests
         [TestMethod]
         public async Task Add_Order()
         {
+            //var order = await API.AccountDataRequest.SelectOrders();
+
+            var authId = await API.AccountFunctionsRequest.AddApiKey(new AddApiKeyModel
+            {
+                ApiKey = "897f5b6d1897fc2d2e3c7fdc24df1cb3",
+                ApiSecret = "a0a2887e6322f5e030f59188597b9200",
+                ApiExchId = 1,
+                ApiNickname = "Test Exchange Account"
+            });
+
+            var activate = await API.AccountFunctionsRequest.ActivateApiKey(new ActivateApiKeyModel
+            {
+                AuthId = authId.Data,
+                AuthActive = 1 // True 
+            });
+
+            var activateTrading = await API.AccountFunctionsRequest.ActivateTradingKey(new ActivateTradingKeyModel
+            {
+                AuthId = authId.Data,
+                AuthTrade = 1 // True
+            });
+
+            //var orderTypes = await API.AccountFunctionsRequest.SelectOrderTypes();
+
+            //var exchanges = await API.MarketDataRequest.SelectExchanges();
+
+            //var markets = await API.MarketDataRequest.SelectMarkets(new MarketModel
+            //{
+            //    ExchangeCode = exchanges.Data[0].ExchCode
+            //});
+
+            // Your order Id will be 0 for the proxy server.
             var result = await API.AccountFunctionsRequest.AddOrder(new AddOrderModel
             {
-                AuthId = 1234,
-                ExchId = 62,
-                MktId = 125,
-                OrderTypeId = 2,
-                PriceTypeId = 3,
-                LimitPrice = 755,
+                AuthId = authId.Data,
+                ExchId = 4,//int.Parse(exchanges.Data[0].ExchId),
+                MktId = 3459,//int.Parse(markets.Data[0].MktId),
+                OrderTypeId = 1,//int.Parse(orderTypes.Data.OrderTypes[0].OrderTypeId),
+                PriceTypeId = 3,//int.Parse(orderTypes.Data.PriceTypes[0].PriceTypeId),
+                LimitPrice = 10,
                 OrderQuantity = 0.01
             });
         }

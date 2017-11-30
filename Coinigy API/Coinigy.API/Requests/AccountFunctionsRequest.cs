@@ -96,7 +96,11 @@ namespace Coinigy.API.Requests
         public async Task<BaseResponse<int>> AddApiKey(AddApiKeyModel model)
         {
             var request = new RestRequest("addApiKey", Method.POST);
-            request.AddJsonBody(model);
+
+            request.AddParameter("api_key", model.ApiKey);
+            request.AddParameter("api_secret", model.ApiSecret);
+            request.AddParameter("api_exch_id", model.ApiExchId);
+            request.AddParameter("api_nickname", model.ApiNickname);
 
             return await base.Execute<BaseResponse<int>>(request);
         }
@@ -112,7 +116,9 @@ namespace Coinigy.API.Requests
         public async Task<BaseResponse<object>> ActivateApiKey(ActivateApiKeyModel model)
         {
             var request = new RestRequest("activateApiKey", Method.POST);
-            request.AddJsonBody(model);
+
+            request.AddParameter("auth_id", model.AuthId);
+            request.AddParameter("auth_active", model.AuthActive);
 
             return await base.Execute<BaseResponse<object>>(request);
         }
@@ -120,17 +126,26 @@ namespace Coinigy.API.Requests
         public async Task<BaseResponse<object>> ActivateTradingKey(ActivateTradingKeyModel model)
         {
             var request = new RestRequest("activateTradingKey", Method.POST);
-            request.AddJsonBody(model);
+
+            request.AddParameter("auth_id", model.AuthId);
+            request.AddParameter("auth_trade", model.AuthTrade);
 
             return await base.Execute<BaseResponse<object>>(request);
         }
 
-        public async Task<BaseResponse<List<InternalOrder>>> AddOrder(AddOrderModel model)
+        public async Task<BaseResponse<InternalOrder>> AddOrder(AddOrderModel model)
         {
             var request = new RestRequest("addOrder", Method.POST);
-            request.AddJsonBody(model);
 
-            return await base.Execute<BaseResponse<List<InternalOrder>>>(request);
+            request.AddParameter("auth_id", model.AuthId);
+            request.AddParameter("exch_id", model.ExchId);
+            request.AddParameter("mkt_id", model.MktId);
+            request.AddParameter("order_type_id", model.OrderTypeId);
+            request.AddParameter("price_type_id", model.PriceTypeId);
+            request.AddParameter("limit_price", model.LimitPrice);
+            request.AddParameter("order_quantity", model.OrderQuantity);
+
+            return await base.Execute<BaseResponse<InternalOrder>>(request);
         }
 
         public async Task<BaseResponse<object>> CancelOrder(CancelOrderModel model)

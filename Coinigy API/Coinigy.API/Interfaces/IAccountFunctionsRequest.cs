@@ -104,7 +104,7 @@ namespace Coinigy.API.Interfaces
         /// Create a new exchange order. Returns internal_order_id upon success.
         /// </summary>
         /// <returns></returns>
-        Task<BaseResponse<List<InternalOrder>>> AddOrder(AddOrderModel model);
+        Task<BaseResponse<InternalOrder>> AddOrder(AddOrderModel model);
 
         /// <summary>
         /// Cancel an outstanding exchange order.

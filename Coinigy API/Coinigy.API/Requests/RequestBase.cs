@@ -24,6 +24,7 @@
 #endregion
 
 using RestSharp;
+using System;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -31,6 +32,10 @@ namespace Coinigy.API.Requests
 {
     public class RequestBase
     {
+        #region Private Fields
+        private DateTime? lastCallDate;
+        #endregion
+
         #region Protected Fields
         protected readonly IRestClient restClient;
         protected readonly string apiKey;
@@ -56,6 +61,12 @@ namespace Coinigy.API.Requests
         {
             request.AddHeader("X-API-KEY", this.apiKey);
             request.AddHeader("X-API-SECRET", this.apiSecret);
+
+            // Wait 0.5 seconds between each call (limited to 2 requests per second)
+            //if (this.lastCallDate.HasValue)
+            //    while (this.lastCallDate.Value < DateTime.Now.AddSeconds(-500))
+            //        await Task.Delay(50);
+            //this.lastCallDate = DateTime.Now;
 
             var response = await restClient.ExecuteTaskAsync<TResponseType>(request);
 
