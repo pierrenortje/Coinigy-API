@@ -81,8 +81,8 @@ namespace Coinigy.API
         public delegate void Exchanges(List<ExchangeItem> exchanges);
         public delegate void ClientIsReady();
         public delegate void Message(MessageType messageType, string data);
-        public delegate void TradeMessage(string exchange, string curr1, string curr2, TradeItem trade);
-        public delegate void OrderMessage(string exchange, string curr1, string curr2, List<OrderItem> orders);
+        public delegate void TradeMessage(string exchange, string primaryCurrency, string secondaryCurreny, TradeItem trade);
+        public delegate void OrderMessage(string exchange, string primaryCurrency, string secondaryCurreny, List<OrderItem> orders);
         public delegate void BlockMessage(string currency, BlockItem block);
         public delegate void FavoriteMessage(List<FavoriteDataItem> favorites);
         public delegate void NewMarketMessage(NewMarketDataItem markets);
@@ -229,13 +229,13 @@ namespace Coinigy.API
                     var orderMarketInfo = MarketInfo.ParseMarketInfo(channelName);
                     var orders = Helper.ToEntity<OrderResponse>(message);
 
-                    OnOrderMessage?.Invoke(orderMarketInfo.Exchange, orderMarketInfo.Curr1, orderMarketInfo.Curr2, orders.OrderData.Orders);
+                    OnOrderMessage?.Invoke(orderMarketInfo.Exchange, orderMarketInfo.PrimaryCurrency, orderMarketInfo.SecondaryCurrency, orders.OrderData.Orders);
                     break;
                 case MessageType.TradeData:
                     var tradeMarketInfo = MarketInfo.ParseMarketInfo(channelName);
                     var trade = Helper.ToEntity<TradeResponse>(message);
 
-                    OnTradeMessage?.Invoke(tradeMarketInfo.Exchange, tradeMarketInfo.Curr1, tradeMarketInfo.Curr2, trade.TradeData.Trade);
+                    OnTradeMessage?.Invoke(tradeMarketInfo.Exchange, tradeMarketInfo.PrimaryCurrency, tradeMarketInfo.SecondaryCurrency, trade.TradeData.Trade);
                     break;
                 case MessageType.BlockData:
                     var blockInfo = BlockItem.ParseBlockInfo(channelName);
