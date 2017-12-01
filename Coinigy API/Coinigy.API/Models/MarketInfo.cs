@@ -28,14 +28,14 @@ namespace Coinigy.API.Models
     internal class MarketInfo
     {
         internal string Exchange { get; set; }
-        internal string Curr1 { get; set; }
-        internal string Curr2 { get; set; }
+        internal string PrimaryCurrency { get; set; }
+        internal string SecondaryCurrency { get; set; }
 
         internal static MarketInfo ParseMarketInfo(string data)
         {
             var str = data.Replace("--", "-");
             var strArr = str.Split('-');
-            return new MarketInfo() { Exchange = strArr[1], Curr1 = strArr[2], Curr2 = strArr[3] };
+            return new MarketInfo() { Exchange = strArr[1], PrimaryCurrency = strArr[2], SecondaryCurrency = strArr[3] };
         }
     }
 }
