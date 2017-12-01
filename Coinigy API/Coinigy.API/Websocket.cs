@@ -93,8 +93,6 @@ namespace Coinigy.API
         #region Public Methods
         public bool Connect()
         {
-            Validate();
-
             return this.socket.Connect();
         }
 

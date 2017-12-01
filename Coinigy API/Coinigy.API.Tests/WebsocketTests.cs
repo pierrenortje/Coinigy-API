@@ -39,11 +39,7 @@ namespace Coinigy.API.Tests
             //socket.OnNewsMessage += Socket_OnNewsMessage;
             //socket.OnNotificationMessage += Socket_OnNotificationMessage;
 
-            if (!socket.Connect())
-            {
-                WriteLog("Failed to connect.");
-                return;
-            }
+            socket.Connect();
 
             resetEvent.WaitOne();
         }
